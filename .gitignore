@@ -7,7 +7,7 @@
 .DS_Store
 
 # Log file
-*.log
+logs/**
 
 # Package Files
 target/**
