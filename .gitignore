@@ -1,0 +1,13 @@
+# File-based project format
+.idea/**
+*.iws
+*.iml
+
+# macOS
+.DS_Store
+
+# Log file
+*.log
+
+# Package Files
+target/**
