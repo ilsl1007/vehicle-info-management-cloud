@@ -5,6 +5,9 @@ spring:
     name: register-center
   profiles:
     active: dev
+jasypt:
+  encryptor:
+    password: vehicle-info-management-cloud
 eureka:
   instance:
     lease-expiration-duration-in-seconds: 15

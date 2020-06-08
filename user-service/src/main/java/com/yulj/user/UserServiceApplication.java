@@ -3,8 +3,11 @@ package com.yulj.user;
 import com.yulj.common.swagger.annotation.EnableSwagger2;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 /**
  * @Classname UserCenterApplication
@@ -16,6 +19,9 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 @EnableEurekaClient
 @EnableDiscoveryClient
 @EnableSwagger2
+@EntityScan(basePackages = "com.yulj.model.user")
+@EnableJpaRepositories(basePackages = "com.yulj.user.repository")
+@EnableJpaAuditing
 public class UserServiceApplication {
 
     public static void main(String[] args) {

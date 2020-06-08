@@ -1,3 +1,17 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/vehicle-info-management?useSSL=false&characterEncoding=utf-8
+    username: root
+    password: Hlxd@123456
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate.dialect: com.yulj.common.core.dialect.MySQLDialectUTF8
+      hibernate.format_sql: false
+    open-in-view: true
 logging:
   level:
     root: info
