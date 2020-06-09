@@ -18,7 +18,7 @@ public interface IUserService {
      * <h2>获取分页列表数据</h2>
      *
      * @param user 用户表查询对象
-     * @return 返回分页数据
+     * @return
      */
     PagedGridResult getPageList(User user);
 
@@ -26,7 +26,7 @@ public interface IUserService {
      * <h2>新增用户</h2>
      *
      * @param userAddBO 用户新增业务对象
-     * @return 用户信息
+     * @return
      */
     JsonResult add(UserAddBO userAddBO);
 
@@ -34,7 +34,7 @@ public interface IUserService {
      * <h2>更新用户</h2>
      *
      * @param userUpdateBO 用户更新业务对象
-     * @return 用户信息
+     * @return
      */
     JsonResult update(UserUpdateBO userUpdateBO);
 
@@ -42,6 +42,7 @@ public interface IUserService {
      * <h2>删除用户信息</h2>
      *
      * @param id 用户id
+     * @return
      */
     JsonResult delete(Long id);
 

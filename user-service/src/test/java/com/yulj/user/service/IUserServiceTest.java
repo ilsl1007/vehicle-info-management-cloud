@@ -31,7 +31,9 @@ public class IUserServiceTest {
     @Test
     public void getPageList() {
         PagedGridResult pageList = userService.getPageList(new User());
-        log.info("pageList={}", pageList);
+        pageList.getRows().forEach(user -> {
+            log.info(user.toString());
+        });
     }
 
     @Test

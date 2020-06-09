@@ -82,7 +82,7 @@ public class User implements Serializable {
     @ApiModelProperty(value = "创建时间")
     @CreatedDate
     @Column(updatable = false, nullable = false)
-    private Date createTime;
+    private Date createdTime;
 
     /**
      * 更新人

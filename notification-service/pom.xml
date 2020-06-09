@@ -21,6 +21,11 @@
         </dependency>
         <dependency>
             <groupId>com.yulj</groupId>
+            <artifactId>common-model</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yulj</groupId>
             <artifactId>common-swagger</artifactId>
             <version>1.0</version>
         </dependency>

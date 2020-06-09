@@ -6,6 +6,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -24,6 +27,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Entity
 @Table(name = "b_notification")
+@EntityListeners(AuditingEntityListener.class)
 public class Notification implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -54,7 +58,7 @@ public class Notification implements Serializable {
      * 状态 0未读,1已读
      */
     @ApiModelProperty(value = "状态 0未读,1已读")
-    private String readStatus;
+    private Boolean readStatus;
 
     /**
      * 创建人
@@ -66,6 +70,8 @@ public class Notification implements Serializable {
      * 创建时间
      */
     @ApiModelProperty(value = "创建时间")
+    @CreatedDate
+    @Column(updatable = false, nullable = false)
     private Date createdTime;
 
     /**
@@ -78,6 +84,7 @@ public class Notification implements Serializable {
      * 更新时间
      */
     @ApiModelProperty(value = "更新时间")
+    @LastModifiedDate
     private Date updatedTime;
 
 }

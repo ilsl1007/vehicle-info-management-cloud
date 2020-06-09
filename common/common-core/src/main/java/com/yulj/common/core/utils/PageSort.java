@@ -12,7 +12,7 @@ import org.springframework.data.domain.Sort;
 public class PageSort {
 
     private static final Integer PAGE_SIZE_DEFAULT = 10;
-    private static final String ORDER_BY_COLUMN_DEFAULT = "createTime";
+    private static final String ORDER_BY_COLUMN_DEFAULT = "createdTime";
     private static final Sort.Direction SORT_DIRECTION = Sort.Direction.DESC;
 
     /**
