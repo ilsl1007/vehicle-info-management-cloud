@@ -9,6 +9,7 @@
         <module>common-swagger</module>
         <module>common-core</module>
         <module>common-model</module>
+        <module>common-job</module>
     </modules>
     <packaging>pom</packaging>
 

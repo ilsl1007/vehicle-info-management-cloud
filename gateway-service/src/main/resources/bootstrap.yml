@@ -1,0 +1,55 @@
+server:
+  port: 9030
+spring:
+  application:
+    name: gateway-service
+  profiles:
+    active: dev
+  cloud:
+    gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+      routes:
+      - id: user-service
+        uri: lb://user-service
+        predicates:
+        - Path=/user-service/**
+        filters:
+        - StripPrefix=1
+      - id: vehicle-management-service
+        uri: lb://vehicle-management-service
+        predicates:
+        - Path=/vehicle-management-service/**
+        filters:
+        - StripPrefix=1
+      - id: notification-service
+        uri: lb://notification-service
+        predicates:
+        - Path=/notification-service/**
+        filters:
+        - StripPrefix=1
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    registry-fetch-interval-seconds: 5
+  instance:
+    lease-expiration-duration-in-seconds: 15
+    lease-renewal-interval-in-seconds: 5
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${server.port}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+logging:
+  file:
+    path: logs/${spring.application.name}.log

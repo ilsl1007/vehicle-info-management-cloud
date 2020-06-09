@@ -29,6 +29,11 @@
             <artifactId>common-swagger</artifactId>
             <version>1.0</version>
         </dependency>
+        <dependency>
+            <groupId>com.yulj</groupId>
+            <artifactId>common-job</artifactId>
+            <version>1.0</version>
+        </dependency>
         <!-- eureka 客户端依赖 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

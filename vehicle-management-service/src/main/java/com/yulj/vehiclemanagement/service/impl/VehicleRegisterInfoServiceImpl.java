@@ -56,6 +56,8 @@ public class VehicleRegisterInfoServiceImpl implements IVehicleRegisterInfoServi
         if (!StringUtils.isEmpty(vehicleRegisterInfoAddBO.getLastInspectionDay())) {
             vehicleRegisterInfo.setLastInspectionDay(DateUtil.parseDate(vehicleRegisterInfoAddBO.getLastInspectionDay()));
         }
+        // TODO 代理人需默认设置为当前登录用户
+        vehicleRegisterInfo.setAgentUser(1L);
         VehicleRegisterInfo saveResult = this.vehicleRegisterInfoRepository.save(vehicleRegisterInfo);
         return JsonResult.ok(saveResult);
     }
@@ -82,6 +84,20 @@ public class VehicleRegisterInfoServiceImpl implements IVehicleRegisterInfoServi
     public JsonResult delete(Long id) {
         this.vehicleRegisterInfoRepository.deleteById(id);
         return JsonResult.ok();
+    }
+
+    @Override
+    public Integer doVehicleJob() {
+        // 1. 查询车辆到检信息
+
+        // 2. 查询车辆保险到期信息
+
+        // 3. 合并信息
+
+        // 4. 构建待插入的通知信息
+
+        // 5. 调用通知服务，插入通知信息
+        return 0;
     }
 
 }

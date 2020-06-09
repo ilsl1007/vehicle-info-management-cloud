@@ -46,4 +46,11 @@ public interface IVehicleRegisterInfoService {
      */
     JsonResult delete(Long id);
 
+    /**
+     * <h2>执行车辆信息相关任务</h2>
+     *
+     * @return
+     */
+    Integer doVehicleJob();
+
 }

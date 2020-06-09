@@ -22,6 +22,7 @@
         <module>common</module>
         <module>vehicle-management-service</module>
         <module>notification-service</module>
+        <module>gateway-service</module>
     </modules>
 
     <properties>
@@ -34,7 +35,7 @@
         <swagger.version>1.5.21</swagger.version>
         <hutool.version>5.3.7</hutool.version>
         <mysql.version>5.1.48</mysql.version>
-        <jasypt.version>3.0.2</jasypt.version>
+        <xxl.job.version>2.2.0</xxl.job.version>
     </properties>
     <dependencies>
         <!-- actuator 监控支持 -->

@@ -60,6 +60,12 @@ public class VehicleRegisterInfoAddBO implements Serializable {
     private String insuranceExpiryDay;
 
     /**
+     * 代理人
+     */
+    @ApiModelProperty(value = "代理人")
+    private Long agentUser;
+
+    /**
      * 备注
      */
     @ApiModelProperty(value = "备注")
