@@ -8,6 +8,10 @@
 
 # Log file
 logs/**
+/notification-service/logs/
+/user-service/logs/
+/vehicle-management-service/logs/
 
 # Package Files
 target/**
+
