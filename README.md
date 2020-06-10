@@ -17,6 +17,11 @@
 > 通过定时任务实现，每日凌晨2点开始执行调度任务，从车辆信息表中查询满足以上两点定义的车辆和客户信息，构建出待办通知内容发送到相关业务人员。任务执行失败或超时会重试3次，如果仍然失败会以邮件方式告知管理员。
 ![image](./doc/material/job-config.png)
 
+## 地址信息
+[车辆信息管理系统](http://8.129.165.17:8088) 用户名：admin 密码：123456  
+[分布式任务调度(xxl-job-admin)](http://8.129.165.17:9080) 用户名：admin 密码：123456  
+[前端源码仓库](https://github.com/ilsl1007/vehicle-info-management-cloud-ui) 
+
 ## 项目结构
 ```shell script
 ├── common                      ## 通用聚合模块
