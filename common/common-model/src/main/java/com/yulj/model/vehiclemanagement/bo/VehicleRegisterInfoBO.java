@@ -1,6 +1,8 @@
 package com.yulj.model.vehiclemanagement.bo;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
@@ -11,14 +13,21 @@ import java.io.Serializable;
  * @Date: 2020/6/9 16:31
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class VehicleRegisterInfoBO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     /**
+     * 车辆登记信息id
+     */
+    private Long id;
+
+    /**
      * 代理人
      */
-    private Long agentUser;
+    private String agentUser;
 
     /**
      * 客户姓名

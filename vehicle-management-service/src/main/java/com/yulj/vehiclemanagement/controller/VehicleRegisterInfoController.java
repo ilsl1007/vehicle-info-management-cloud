@@ -51,7 +51,7 @@ public class VehicleRegisterInfoController {
     }
 
     @ApiOperation(value = "更新车辆注册信息", notes = "更新车辆注册信息", response = JsonResult.class)
-    @PutMapping("/update")
+    @PostMapping("/update")
     public JsonResult update(@Valid @RequestBody VehicleRegisterInfoUpdateBO vehicleRegisterInfoUpdateBO,
                              @ApiIgnore BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
@@ -63,7 +63,7 @@ public class VehicleRegisterInfoController {
 
     @ApiOperation(value = "删除车辆注册信息", notes = "根据用户id删除车辆注册信息", response = JsonResult.class)
     @ApiImplicitParam(name = "id", value = "车辆注册信息id", required = true, dataType = "Long")
-    @DeleteMapping("/delete")
+    @PostMapping("/delete")
     public JsonResult delete(@RequestParam @NotNull(message = "车辆注册信息id不能为空") Long id) {
         return this.vehicleRegisterInfoService.delete(id);
     }

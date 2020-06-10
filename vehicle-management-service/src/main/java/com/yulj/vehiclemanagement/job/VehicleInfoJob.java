@@ -24,8 +24,12 @@ public class VehicleInfoJob {
 
     @XxlJob("vehicleInfoJobHandler")
     public ReturnT<String> vehicleInfoJobHandler(String str) {
-        Integer result = this.vehicleRegisterInfoService.doVehicleJob();
-        log.info("任务执行完成，发送通知条数：{}", result);
+        try {
+            Integer result = this.vehicleRegisterInfoService.doVehicleJob();
+            log.info("任务执行完成，发送通知条数：{}", result);
+        } catch (Exception e) {
+            log.error("执行任务错误", e.getMessage());
+        }
         return SUCCESS;
     }
 

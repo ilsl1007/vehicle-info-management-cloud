@@ -31,7 +31,7 @@ public class IVehicleRegisterInfoServiceTest {
     @Test
     public void getPageList() {
         PagedGridResult pageList = this.vehicleRegisterInfoService.getPageList(new VehicleRegisterInfo());
-        pageList.getRows().forEach(vehicleRegisterInfo -> {
+        pageList.getData().forEach(vehicleRegisterInfo -> {
             log.info(vehicleRegisterInfo.toString());
         });
     }

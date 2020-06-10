@@ -52,7 +52,7 @@ public class Notification implements Serializable {
      * 接收人
      */
     @ApiModelProperty(value = "接收人")
-    private Long belongToUser;
+    private String belongToUser;
 
     /**
      * 状态 0未读,1已读

@@ -1,3 +1,4 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
   com.yulj.common.core.config.JacksonConfig,\
-  com.yulj.common.core.config.MessageSourceConfig
+  com.yulj.common.core.config.MessageSourceConfig,\
+  com.yulj.common.core.config.JwtOperator

@@ -23,6 +23,11 @@ management:
   endpoint:
     health:
       show-details: always
+jwt:
+  ## 秘钥
+  secret: 8a2bd32422ce68f141195f6198210d7a
+  ## 过期时间
+  expire-time-in-second: 86400
 logging:
   file:
     path: logs/${spring.application.name}.log

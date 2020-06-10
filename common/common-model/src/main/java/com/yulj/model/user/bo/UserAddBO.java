@@ -40,7 +40,6 @@ public class UserAddBO implements Serializable {
      * 密码
      */
     @ApiModelProperty(value = "密码")
-    @NotBlank(message = "密码不能为空")
     private String password;
 
     /**

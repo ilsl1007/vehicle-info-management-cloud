@@ -16,13 +16,19 @@ import java.util.List;
 @ApiModel(value = "分页Grid数据对象")
 public final class PagedGridResult<T> {
 
-    private Long total;
+    private Integer code;
 
-    private List<T> rows;
+    private String msg;
+
+    private Long count;
+
+    private List<T> Data;
 
     public PagedGridResult(Page<T> page) {
-        this.total = page.getTotalElements();
-        this.rows = page.getContent();
+        this.code = 0;
+        this.msg = "";
+        this.count = page.getTotalElements();
+        this.Data = page.getContent();
     }
 
 }

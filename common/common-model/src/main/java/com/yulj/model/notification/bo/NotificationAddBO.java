@@ -38,7 +38,7 @@ public class NotificationAddBO implements Serializable {
      */
     @ApiModelProperty(value = "接收人")
     @NotNull(message = "接收人不能为空")
-    private Long belongToUser;
+    private String belongToUser;
 
     /**
      * 状态 0未读,1已读

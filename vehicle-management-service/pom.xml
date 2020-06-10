@@ -56,6 +56,11 @@
             <version>${mysql.version}</version>
             <scope>runtime</scope>
         </dependency>
+        <!-- Feign支持 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

@@ -36,6 +36,7 @@
         <hutool.version>5.3.7</hutool.version>
         <mysql.version>5.1.48</mysql.version>
         <xxl.job.version>2.2.0</xxl.job.version>
+        <jsonwebtoken.version>0.10.7</jsonwebtoken.version>
     </properties>
     <dependencies>
         <!-- actuator 监控支持 -->

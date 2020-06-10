@@ -64,7 +64,7 @@ public class VehicleRegisterInfoUpdateBO implements Serializable {
      * 代理人
      */
     @ApiModelProperty(value = "代理人")
-    private Long agentUser;
+    private String agentUser;
 
     /**
      * 备注

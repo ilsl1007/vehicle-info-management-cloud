@@ -32,6 +32,9 @@ management:
   endpoint:
     health:
       show-details: always
+pre:
+  remind:
+    days: 7
 logging:
   file:
     path: logs/${spring.application.name}.log

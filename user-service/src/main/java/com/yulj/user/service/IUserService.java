@@ -4,6 +4,7 @@ import com.yulj.common.core.utils.JsonResult;
 import com.yulj.common.core.utils.PagedGridResult;
 import com.yulj.model.user.User;
 import com.yulj.model.user.bo.UserAddBO;
+import com.yulj.model.user.bo.UserLoginBO;
 import com.yulj.model.user.bo.UserUpdateBO;
 
 /**
@@ -46,4 +47,18 @@ public interface IUserService {
      */
     JsonResult delete(Long id);
 
+    /**
+     * <h2>用户登录</h2>
+     *
+     * @param userLoginBO 用户登录业务对象
+     * @return
+     */
+    JsonResult login(UserLoginBO userLoginBO);
+
+    /**
+     * <h2>获取当前登录用户信息</h2>
+     *
+     * @return
+     */
+    JsonResult current();
 }

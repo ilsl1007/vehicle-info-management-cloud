@@ -51,6 +51,6 @@ public interface IVehicleRegisterInfoService {
      *
      * @return
      */
-    Integer doVehicleJob();
+    Integer doVehicleJob() throws Exception;
 
 }
