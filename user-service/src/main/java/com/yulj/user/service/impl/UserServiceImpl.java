@@ -41,6 +41,11 @@ public class UserServiceImpl implements IUserService {
      */
     public static final String USER_DEFAULT_PASSWORD = "P@ssw0rd";
 
+    /**
+     * 系统管理员账号id
+     */
+    public static final Long ADMIN_USER_ID = 1L;
+
     @Autowired
     private UserRepository userRepository;
 
@@ -101,6 +106,9 @@ public class UserServiceImpl implements IUserService {
     @Override
     @Transactional(propagation = Propagation.REQUIRED)
     public JsonResult delete(Long id) {
+        if (Objects.equals(ADMIN_USER_ID, id)) {
+            return JsonResult.errorMsg("管理员账号不能删除");
+        }
         this.userRepository.deleteById(id);
         return JsonResult.ok();
     }

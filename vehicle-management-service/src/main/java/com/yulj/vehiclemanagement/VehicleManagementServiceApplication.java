@@ -1,6 +1,5 @@
 package com.yulj.vehiclemanagement;
 
-import com.yulj.common.swagger.annotation.EnableSwagger2;
 import com.yulj.job.annotation.EnableXxlJob;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -20,7 +19,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication
 @EnableEurekaClient
 @EnableDiscoveryClient
-@EnableSwagger2
 @EntityScan(basePackages = "com.yulj.model.vehiclemanagement")
 @EnableJpaRepositories(basePackages = "com.yulj.vehiclemanagement.repository")
 @EnableJpaAuditing

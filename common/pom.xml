@@ -6,7 +6,6 @@
     <artifactId>common</artifactId>
     <description>通用聚合模块</description>
     <modules>
-        <module>common-swagger</module>
         <module>common-core</module>
         <module>common-model</module>
         <module>common-job</module>

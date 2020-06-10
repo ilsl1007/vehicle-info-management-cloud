@@ -95,6 +95,7 @@ public class VehicleRegisterInfoServiceImpl implements IVehicleRegisterInfoServi
         Object account = claims.get("account");
         if (Objects.nonNull(account)) {
             vehicleRegisterInfo.setUpdatedBy(String.valueOf(account));
+            vehicleRegisterInfo.setAgentUser(String.valueOf(account));
         }
         VehicleRegisterInfo saveResult = this.vehicleRegisterInfoRepository.save(vehicleRegisterInfo);
         return JsonResult.ok(saveResult);

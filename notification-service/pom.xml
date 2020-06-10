@@ -24,11 +24,6 @@
             <artifactId>common-model</artifactId>
             <version>1.0</version>
         </dependency>
-        <dependency>
-            <groupId>com.yulj</groupId>
-            <artifactId>common-swagger</artifactId>
-            <version>1.0</version>
-        </dependency>
         <!-- eureka 客户端依赖 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -50,6 +45,11 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql.version}</version>
             <scope>runtime</scope>
+        </dependency>
+        <!-- 若服务本身不需要接口文档页面，则修改 artifactId 为 knife4j-micro-spring-boot-starter -->
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-spring-boot-starter</artifactId>
         </dependency>
     </dependencies>
 

@@ -22,8 +22,7 @@
 ├── common                      ## 通用聚合模块
 │   ├── common-core             ## 公共核心包
 │   ├── common-job              ## 分布式任务调度支持
-│   ├── common-model            ## 通用实体模块
-│   └── common-swagger          ## 接口文档支持
+│   └── common-model            ## 通用实体模块
 ├── doc                         ## 相关文档
 │   ├── db                      ## 数据库初始化脚本
 ├── gateway-service             ## 网关服务
@@ -34,5 +33,5 @@
 ```
 
 ## 版本说明
->> SpringBoot 2.3.0  
->> SpringCloud Hoxton.SR4
+>> SpringBoot 2.2.6  
+>> SpringCloud Hoxton.SR3

@@ -5,25 +5,6 @@ spring:
     name: vehicle-management-service
   profiles:
     active: dev
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
-    registry-fetch-interval-seconds: 5
-  instance:
-    lease-expiration-duration-in-seconds: 15
-    lease-renewal-interval-in-seconds: 5
-    prefer-ip-address: true
-    instance-id: ${spring.application.name}:${server.port}
-xxl:
-  job:
-    admin:
-      # xxl-job-admin 接口地址
-      addresses: http://localhost:8080/xxl-job-admin
-    executor:
-      #通讯端口
-      port: 9988
-      appName: vehicle-management-service
 management:
   endpoints:
     web:

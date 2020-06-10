@@ -1,6 +1,5 @@
 package com.yulj.notification;
 
-import com.yulj.common.swagger.annotation.EnableSwagger2;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -18,7 +17,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication
 @EnableEurekaClient
 @EnableDiscoveryClient
-@EnableSwagger2
 @EntityScan(basePackages = "com.yulj.model.notification")
 @EnableJpaRepositories(basePackages = "com.yulj.notification.repository")
 @EnableJpaAuditing

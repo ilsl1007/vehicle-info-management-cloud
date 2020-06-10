@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/vehicle-info-management?useSSL=false&characterEncoding=utf-8
+    url: jdbc:mysql://172.18.120.171:3306/vehicle-info-management?useSSL=false&characterEncoding=utf-8
     username: root
     password: Hlxd@123456
   jpa:
@@ -12,6 +12,16 @@ spring:
       hibernate.dialect: com.yulj.common.core.dialect.MySQLDialectUTF8
       hibernate.format_sql: false
     open-in-view: true
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://172.18.120.171:8761/eureka/
+    registry-fetch-interval-seconds: 5
+  instance:
+    lease-expiration-duration-in-seconds: 15
+    lease-renewal-interval-in-seconds: 5
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${server.port}
 logging:
   level:
     root: warn
