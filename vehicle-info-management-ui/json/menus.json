@@ -1,0 +1,32 @@
+[
+  {
+    "name": "首页",
+    "icon": "layui-icon layui-icon-home",
+    "url": "#/console/dashboard"
+  },
+  {
+    "name": "系统管理",
+    "icon": "layui-icon layui-icon-set",
+    "url": "javascript:;",
+    "subMenus": [
+      {
+        "name": "用户管理",
+        "url": "#/system/user"
+      },
+      {
+        "name": "车辆管理",
+        "url": "#/system/vehicle-info"
+      },
+      {
+        "name": "待办通知",
+        "url": "#/system/notification"
+      }
+    ]
+  },
+  {
+    "name": "注册中心",
+    "icon": "layui-icon-unlink",
+    "url": "#/register-center",
+    "iframe": "http://localhost:8761"
+  }
+]
