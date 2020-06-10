@@ -30,6 +30,9 @@
 ├── notification-service        ## 通知服务 
 ├── register-center             ## 注册中心
 ├── user-service                ## 用户中心
-├── vehicle-info-management-ui  ## 前端代码
 └── vehicle-management-service  ## 车辆信息管理服务
 ```
+
+## 版本说明
+>> SpringBoot 2.3.0  
+>> SpringCloud Hoxton.SR4
