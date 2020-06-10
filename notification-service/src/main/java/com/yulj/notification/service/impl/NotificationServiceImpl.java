@@ -1,14 +1,11 @@
 package com.yulj.notification.service.impl;
 
-import com.yulj.common.core.config.JwtOperator;
-import com.yulj.common.core.utils.HttpServletUtil;
 import com.yulj.common.core.utils.PageSort;
 import com.yulj.common.core.utils.PagedGridResult;
 import com.yulj.model.notification.Notification;
 import com.yulj.model.notification.bo.NotificationAddBO;
 import com.yulj.notification.repository.NotificationRepository;
 import com.yulj.notification.service.INotificationService;
-import io.jsonwebtoken.Claims;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
@@ -16,12 +13,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
-import org.springframework.util.StringUtils;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * @Classname NotificationServiceImpl
@@ -53,37 +47,17 @@ public class NotificationServiceImpl implements INotificationService {
     @Transactional(propagation = Propagation.REQUIRED)
     public Integer batchInsert(List<NotificationAddBO> notificationAddBOList) {
         List<Notification> notificationList = new ArrayList<>();
-        Claims claims = getClaims();
-        Object account = claims.get("account");
         notificationAddBOList.forEach(notificationAddBO -> {
             Notification notification = new Notification();
             BeanUtils.copyProperties(notificationAddBO, notification);
-            if (Objects.nonNull(account)) {
-                notification.setCreatedBy(String.valueOf(account));
-            }
+            // 由于源请求未传递 Token，所以无法获取当前登录用户，执行任务创建通知信息的创建人设置为 admin。
+            notification.setCreatedBy("admin");
             notificationList.add(notification);
         });
         if (CollectionUtils.isEmpty(notificationList)) {
             return 0;
         }
         return this.notificationRepository.saveAll(notificationList).size();
-    }
-
-    @Autowired
-    private JwtOperator jwtOperator;
-
-    /**
-     * <h2>从JWT token中获取用户信息</h2>
-     *
-     * @return
-     */
-    private Claims getClaims() {
-        HttpServletRequest request = HttpServletUtil.getRequest();
-        String token = request.getHeader("X-Token");
-        if (!StringUtils.isEmpty(token)) {
-            return jwtOperator.getClaimsFromToken(token);
-        }
-        return null;
     }
 
 }
