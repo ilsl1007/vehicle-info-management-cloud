@@ -34,16 +34,16 @@ CREATE TABLE `b_notification` (
   `created_time` datetime DEFAULT NULL COMMENT '创建时间',
   `updated_by` varchar(32) DEFAULT NULL COMMENT '更新人',
   `updated_time` datetime DEFAULT NULL COMMENT '更新时间',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COMMENT='通知信息表';
 
 -- ----------------------------
 -- Records of b_notification
 -- ----------------------------
 BEGIN;
-INSERT INTO `b_notification` VALUES (1, '待办通知：客户姓名：张三，车型：奥迪A4L，类型：车检到期，距离车检到期天数：-8，联系电话：15598765876。', 'admin', 0, NULL, '2020-06-10 16:39:55', NULL, '2020-06-10 16:39:55');
-INSERT INTO `b_notification` VALUES (2, '待办通知：客户姓名：李四，车型：宝马X3，类型：车检到期，距离车检到期天数：-1，联系电话：18765432341。', 'admin', 0, NULL, '2020-06-10 16:39:55', NULL, '2020-06-10 16:39:55');
-INSERT INTO `b_notification` VALUES (3, '待办通知：客户姓名：王五，车型：大众宝来，类型：车险到期，距离车险到期天数：4，联系电话：15559876342。', 'admin', 0, NULL, '2020-06-10 16:39:55', NULL, '2020-06-10 16:39:55');
+INSERT INTO `b_notification` VALUES (1, '待办通知：客户姓名：李四，车型：宝马X3，类型：车检到期、车险到期，距离车检到期天数：4，距离车险到期天数：5，联系电话：18765432341。', 'admin', 0, 'admin', '2020-06-10 18:00:00', NULL, '2020-06-10 18:00:00');
+INSERT INTO `b_notification` VALUES (2, '待办通知：客户姓名：张三，车型：奥迪A4L，类型：车检到期，距离车检到期天数：5，联系电话：15598765876。', 'admin', 0, 'admin', '2020-06-10 18:00:00', NULL, '2020-06-10 18:00:00');
+INSERT INTO `b_notification` VALUES (3, '待办通知：客户姓名：王五，车型：大众宝来，类型：车险到期，距离车险到期天数：3，联系电话：15559876342。', 'admin', 0, 'admin', '2020-06-10 18:00:00', NULL, '2020-06-10 18:00:00');
 COMMIT;
 
 -- ----------------------------
@@ -63,18 +63,19 @@ CREATE TABLE `b_vehicle_register_info` (
   `created_time` datetime DEFAULT NULL COMMENT '创建时间',
   `updated_by` varchar(32) DEFAULT NULL COMMENT '更新人',
   `updated_time` datetime DEFAULT NULL COMMENT '更新时间',
-  PRIMARY KEY (`id`),
-  KEY `index_last_inspection_day` (`last_inspection_day`),
-  KEY `index_insurance_expiry_day` (`insurance_expiry_day`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COMMENT='车辆信息登记表';
+  PRIMARY KEY (`id`) USING BTREE,
+  KEY `index_last_inspection_day` (`last_inspection_day`) USING BTREE,
+  KEY `index_insurance_expiry_day` (`insurance_expiry_day`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COMMENT='车辆信息登记表';
 
 -- ----------------------------
 -- Records of b_vehicle_register_info
 -- ----------------------------
 BEGIN;
-INSERT INTO `b_vehicle_register_info` VALUES (1, '张三', '奥迪A4L', '15598765876', '2019-06-03', '2020-06-30', 'admin', NULL, 'admin', '2020-06-10 16:29:54', NULL, '2020-06-10 16:29:54');
-INSERT INTO `b_vehicle_register_info` VALUES (2, '李四', '宝马X3', '18765432341', '2019-06-10', '2020-06-30', 'admin', NULL, 'admin', '2020-06-10 16:31:18', NULL, '2020-06-10 16:31:18');
+INSERT INTO `b_vehicle_register_info` VALUES (1, '张三', '奥迪A4L', '15598765876', '2019-06-17', '2020-06-30', 'admin', '', NULL, '2020-06-10 16:29:54', 'admin', '2020-06-10 17:21:14');
+INSERT INTO `b_vehicle_register_info` VALUES (2, '李四', '宝马X3', '18765432341', '2019-06-16', '2020-06-16', 'admin', '', NULL, '2020-06-10 16:31:18', 'admin', '2020-06-10 17:22:21');
 INSERT INTO `b_vehicle_register_info` VALUES (3, '王五', '大众宝来', '15559876342', '2020-04-23', '2020-06-14', 'admin', NULL, 'admin', '2020-06-10 16:32:29', NULL, '2020-06-10 16:32:29');
+INSERT INTO `b_vehicle_register_info` VALUES (4, '345678', '2323232', '15974950068', '2017-01-01', '2019-01-01', 'admin', '12', NULL, '2020-06-11 01:56:41', 'admin', '2020-06-11 01:57:21');
 COMMIT;
 
 -- ----------------------------
@@ -92,8 +93,8 @@ CREATE TABLE `sys_user` (
   `created_time` datetime DEFAULT NULL COMMENT '创建时间',
   `updated_by` varchar(32) DEFAULT NULL COMMENT '更新人',
   `updated_time` datetime DEFAULT NULL COMMENT '更新时间',
-  PRIMARY KEY (`id`),
-  KEY `index_account` (`account`)
+  PRIMARY KEY (`id`) USING BTREE,
+  KEY `index_account` (`account`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COMMENT='系统用户表';
 
 -- ----------------------------
@@ -101,6 +102,7 @@ CREATE TABLE `sys_user` (
 -- ----------------------------
 BEGIN;
 INSERT INTO `sys_user` VALUES (1, 'admin', 'e10adc3949ba59abbe56e057f20f883e', '超级管理员', '15559876543', 'admin@xx.com', NULL, '2020-06-10 01:30:52', NULL, '2020-06-10 15:39:27');
+INSERT INTO `sys_user` VALUES (2, 'ycx315', '161ebd7d45089b3446ee4e0d86dbcf92', '232', '15974950068', 'ycx.bn.cn@qq.com', 'admin', '2020-06-11 01:54:38', NULL, '2020-06-11 01:54:38');
 COMMIT;
 
 -- ----------------------------
@@ -120,7 +122,7 @@ CREATE TABLE `xxl_job_group` (
 -- Records of xxl_job_group
 -- ----------------------------
 BEGIN;
-INSERT INTO `xxl_job_group` VALUES (2, 'vehicle-management-service', '车辆信息管理服务', 0, NULL);
+INSERT INTO `xxl_job_group` VALUES (2, 'vehicle-management-service', '车辆信息管理服务', 0, 'http://172.18.120.171:9988/,http://172.18.120.171:9989/');
 COMMIT;
 
 -- ----------------------------
@@ -157,7 +159,7 @@ CREATE TABLE `xxl_job_info` (
 -- Records of xxl_job_info
 -- ----------------------------
 BEGIN;
-INSERT INTO `xxl_job_info` VALUES (3, 2, '0 0 2 * * ?', '车辆信息任务', '2020-06-09 17:32:29', '2020-06-10 16:42:15', 'admin', '', 'ROUND', 'vehicleInfoJobHandler', '', 'SERIAL_EXECUTION', 300, 3, 'BEAN', '', 'GLUE代码初始化', '2020-06-09 17:32:29', '', 0, 0, 0);
+INSERT INTO `xxl_job_info` VALUES (3, 2, '0 0 2 * * ?', '车辆信息任务', '2020-06-09 17:32:29', '2020-06-10 16:36:22', 'admin', '', 'ROUND', 'vehicleInfoJobHandler', '', 'SERIAL_EXECUTION', 300, 3, 'BEAN', '', 'GLUE代码初始化', '2020-06-09 17:32:29', '', 1, 1591812000000, 1591898400000);
 COMMIT;
 
 -- ----------------------------
@@ -199,7 +201,14 @@ CREATE TABLE `xxl_job_log` (
   PRIMARY KEY (`id`) USING BTREE,
   KEY `I_trigger_time` (`trigger_time`) USING BTREE,
   KEY `I_handle_code` (`handle_code`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Records of xxl_job_log
+-- ----------------------------
+BEGIN;
+INSERT INTO `xxl_job_log` VALUES (9, 2, 3, 'http://172.18.120.171:9988/', 'vehicleInfoJobHandler', '', NULL, 3, '2020-06-10 13:00:00', 200, '任务触发类型：手动触发<br>调度机器：172.17.0.2<br>执行器-注册方式：自动注册<br>执行器-地址列表：[http://172.18.120.171:9988/]<br>路由策略：轮询<br>阻塞处理策略：单机串行<br>任务超时时间：300<br>失败重试次数：3<br><br><span style=\"color:#00c0ef;\" > >>>>>>>>>>>触发调度<<<<<<<<<<< </span><br>触发调度：<br>address：http://172.18.120.171:9988/<br>code：200<br>msg：null', '2020-06-10 13:00:00', 200, '', 0);
+COMMIT;
 
 -- ----------------------------
 -- Table structure for xxl_job_log_report
@@ -213,7 +222,7 @@ CREATE TABLE `xxl_job_log_report` (
   `fail_count` int(11) NOT NULL DEFAULT '0' COMMENT '执行失败-日志数量',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE KEY `i_trigger_day` (`trigger_day`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of xxl_job_log_report
@@ -223,6 +232,13 @@ INSERT INTO `xxl_job_log_report` VALUES (1, '2020-06-09 00:00:00', 0, 0, 0);
 INSERT INTO `xxl_job_log_report` VALUES (2, '2020-06-08 00:00:00', 0, 0, 0);
 INSERT INTO `xxl_job_log_report` VALUES (3, '2020-06-07 00:00:00', 0, 0, 0);
 INSERT INTO `xxl_job_log_report` VALUES (4, '2020-06-10 00:00:00', 0, 1, 0);
+INSERT INTO `xxl_job_log_report` VALUES (5, '2020-06-09 16:00:00', 0, 0, 0);
+INSERT INTO `xxl_job_log_report` VALUES (6, '2020-06-08 16:00:00', 0, 0, 0);
+INSERT INTO `xxl_job_log_report` VALUES (7, '2020-06-07 16:00:00', 0, 0, 0);
+INSERT INTO `xxl_job_log_report` VALUES (8, '2020-06-10 16:00:00', 0, 3, 0);
+INSERT INTO `xxl_job_log_report` VALUES (9, '2020-06-10 11:00:00', 0, 1, 0);
+INSERT INTO `xxl_job_log_report` VALUES (10, '2020-06-09 11:00:00', 0, 0, 0);
+INSERT INTO `xxl_job_log_report` VALUES (11, '2020-06-08 11:00:00', 0, 0, 0);
 COMMIT;
 
 -- ----------------------------
@@ -252,7 +268,15 @@ CREATE TABLE `xxl_job_registry` (
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   KEY `i_g_k_v` (`registry_group`,`registry_key`,`registry_value`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Records of xxl_job_registry
+-- ----------------------------
+BEGIN;
+INSERT INTO `xxl_job_registry` VALUES (4, 'EXECUTOR', 'vehicle-management-service', 'http://172.18.120.171:9988/', '2020-06-10 21:04:06');
+INSERT INTO `xxl_job_registry` VALUES (5, 'EXECUTOR', 'vehicle-management-service', 'http://172.18.120.171:9989/', '2020-06-10 21:04:28');
+COMMIT;
 
 -- ----------------------------
 -- Table structure for xxl_job_user

@@ -5,7 +5,6 @@ import com.yulj.common.core.utils.JsonResult;
 import com.yulj.common.core.utils.PagedGridResult;
 import com.yulj.model.user.User;
 import com.yulj.model.user.bo.UserAddBO;
-import com.yulj.model.user.bo.UserLoginBO;
 import com.yulj.model.user.bo.UserUpdateBO;
 import com.yulj.user.service.IUserService;
 import io.swagger.annotations.Api;
@@ -65,22 +64,6 @@ public class UserController {
     @PostMapping("/delete")
     public JsonResult delete(@RequestParam @NotNull(message = "用户id不能为空") Long id) {
         return this.userService.delete(id);
-    }
-
-    @ApiOperation(value = "获取当前登录用户信息", notes = "获取当前登录用户信息")
-    @GetMapping("/current")
-    public JsonResult current() {
-        return this.userService.current();
-    }
-
-    @ApiOperation(value = "用户登录", notes = "用户登录")
-    @PostMapping("/login")
-    public JsonResult login(@Valid @RequestBody UserLoginBO userLoginBO, @ApiIgnore BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            Map<String, String> errorMap = BindingResultUtil.getErrors(bindingResult);
-            return JsonResult.errorMap(errorMap);
-        }
-        return this.userService.login(userLoginBO);
     }
 
 }
