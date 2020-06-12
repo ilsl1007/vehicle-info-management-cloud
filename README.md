@@ -18,8 +18,8 @@
 ![image](./doc/material/job-config.png)
 
 ## 地址信息
-[车辆信息管理系统](http://8.129.165.17:8088) 用户名：admin 密码：123456  
-[分布式任务调度(xxl-job-admin)](http://8.129.165.17:9080/xxl-job-admin) 用户名：admin 密码：123456  
+~~车辆信息管理系统：http://8.129.165.17:8088 用户名：admin 密码：123456~~ 已失效  
+~~分布式任务调度(xxl-job-admin)：http://8.129.165.17:9080/xxl-job-admin 用户名：admin 密码：123456~~ 已失效  
 [前端源码仓库](https://github.com/ilsl1007/vehicle-info-management-cloud-ui) 
 
 ## 项目结构
